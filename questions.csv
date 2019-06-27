@@ -1,0 +1,12 @@
+Questions,Syllabus Area(s),Advice,Correct Answer,Wrong Answer,Wrong Answer,Wrong Answer,Wrong Answer
+Which of these is not a valid DNS record?,C2,"A - Specifies an IP address for a given host
+AAAA - Specifies the IPv6 address for a given host
+HINFO - Used to acquire general information about a host, such as type of CPU and OS
+SOA - Start of Authority record contains information about a DNS zone, including the primary name server, email of the domain administrator, and more",NEWS,A,AAAA,HINFO,SOA
+How many sides does a square have?,A1,Squares are made up of four equal-length sides,4,1,2,3,5
+How many sides does a triangle have?,A1,Triangles are made up of three sides. The sides are not necessarily equal in length.,3,1,2,4,5
+"What type of shape is the following:
+* It has three sides
+* Side 1 is 3cm long
+* Side 2 is 4cm long
+* Side 3 is 5cm long",A1,"According to the pythagorean theorum, is the square of the larger side is equal to the sum of the squares of the other two sides of a triangle, then the triangle is a right-angle triangle.",Right-angle Triangle,Equilateral Triangle,Isosceles Triangle,Scalene Triangle,Obtuse Triangle
