@@ -40,6 +40,16 @@ The `--file` flag is used to pass a CSV file to the application which contains t
 * -r  
 The `-r` flag takes no parameters. If it is specified, the questions will *NOT* be asked in a random order, and will instead be taken from the imported CSV, starting at the first line and working down until the total number of questions has been asked. Note that the answers will still be presented in a random order, however.
 
+## Dependencies
+The following dependencies must be installed in order for the quiz to run:
+* Colorama (pip install colorama)
+
+## Supported Platforms
+The quiz has been tested and works on the following platforms. However, it should work on any platform which runs Python3.
+* Windows 10
+* Linux Mint
+* Android
+
 ## Future Additions  
 Currently, I have developed this quiz tool to the bare minimum needed to help me practice for my upcoming CCT exam. It would have been far too easy to continue adding features, but that would have eaten into the time I actually spent studying. As such, the below are features that I would like to add in but have not yet done:
 * Make the Advice optional. Currently, advice is shown after every question is answered to provide additional information on the subject within the question. I have found this really useful as a learning aid, but the real exam doesn't give this advice!
