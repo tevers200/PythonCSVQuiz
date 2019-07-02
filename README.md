@@ -56,3 +56,4 @@ Currently, I have developed this quiz tool to the bare minimum needed to help me
 * Allow the questions asked to be specified by syllabus level. E.g. within CREST's syllabus, section "E" relates to Microsoft Windows Security Assessment. If this was one of my weaker areas, I may want to quiz myself only on questions within this syllabus area. Likewise, I may want to exclude certain areas I'm very confident on.
 * Hide the scoring for each question. Again, in the real exam you don't know your score until the end. It would be good to have the option to only show the results at the very end of the quiz.
 * Show a score breakdown based on syllabus area. If I do really well on questions from Syllabus area "A", but really badly on syllabus area "B", I want to know so that I can focus on the weaker areas.
+* Provide a runtime flag which allows the time taken to be tracked (show the start time at the beginning, and the end time and total time at the end)
