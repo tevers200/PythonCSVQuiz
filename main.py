@@ -3,6 +3,7 @@ from random import shuffle
 import csv
 import argparse
 from colorama import Fore, Back, Style, init
+import datetime
 init(autoreset=True)
 
 parser = argparse.ArgumentParser(description='Tamar\'s Python Quiz')
@@ -11,6 +12,9 @@ parser.add_argument('--number', metavar='N', type=int,
 parser.add_argument('--file', default="questions.csv",
                     help='Default questions.csv. A CSV file containing questions in the format:\nQuestion,SyllabusArea,Advice,CorrectAnswer,WrongAnswer[n]...'),
 parser.add_argument('-r', action='store_true', help='Prevent the questions from being asked in a random order (defaults to random if this flag is not set).')
+parser.add_argument('-a', action='store_true', help='Hides the advice text shown after each question (shows the advice by default if this flag is not set).')
+parser.add_argument('-s', action='store_true', help='Hides the score for each question (correct/incorrect) and only shows your overall score at the end of the quiz')
+parser.add_argument('-t', action='store_true', help='Hides the time taken for the quiz, and average time per question (shows the timings by default if this flag is not set).')
 
 args = parser.parse_args()
 
@@ -32,6 +36,18 @@ if args.r:
     randomize = False
 else:
     randomize = True
+if args.a:
+    advice = False
+else:
+    advice = True
+if args.s:
+    showscore = False
+else:
+    showscore = True
+if args.t:
+    time = False
+else:
+    time = True
 numQuestions = int(args.number)
 
 numbering = "abcdefghijklmnopqrstuvwxyz"
@@ -62,6 +78,7 @@ def load_quiz(quizfile,randomize):
     return questions
 
 def run_quiz(questions,numQuestions):
+    starttime = datetime.datetime.now()
     score = 0
     qNum = 0
     if(numQuestions > len(questions)):
@@ -92,19 +109,25 @@ def run_quiz(questions,numQuestions):
                 else:
                     print(Fore.RED + "Invalid response. Try again.")
             if answer == numbering[correct]:
-                print(Fore.GREEN + Style.BRIGHT + "\nCorrect\n")
+                if showscore:
+                    print(Fore.GREEN + Style.BRIGHT + "\nCorrect\n")
                 score += 1
             else:
-                print(Fore.RED + Style.BRIGHT + f'\nIncorrect\n\n')
-                print(f'Correct Answer: \n{question.correctAnswer}\n')
-            print(Fore.MAGENTA + Style.BRIGHT + f'\nAdditional Info:')
-            print(f'Syllabus area: {question.syllabusArea}\n')
-            print(f'{question.advice}\n\n================================================\n\n')
+                if showscore:
+                    print(Fore.RED + Style.BRIGHT + f'\nIncorrect\n\n')
+                    print(f'Correct Answer: \n{question.correctAnswer}\n')
+            if advice:
+                print(Fore.MAGENTA + Style.BRIGHT + f'\nAdditional Info:')
+                print(f'Syllabus area: s{question.syllabusArea}\n')
+                print(f'{question.advice}\n\n================================================\n\n')
         else:
             break
+    totaltime = datetime.datetime.now() - starttime
+
     print("\n\nYou got", score, "out of", total)
     percentage = (score / total) * 100
     print(f'{percentage}%')
+    print("\n\nThe quiz took you", totaltime, "to complete. The average time spent per question was", totaltime/total)
 
 
 questions = load_quiz(quizfile, randomize)
