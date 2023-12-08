@@ -37,6 +37,8 @@ optional arguments:
                (shows the advice by default if this flag is not set).
   -s           Hides the score for each question (correct/incorrect) and
                only shows your overall score at the end of the quiz.  
+  -t           Hides the time taken for the quiz, and average time per question.
+               (shows the timings by default if this flag is not set).  
 ~~~~
 
 * --number  
